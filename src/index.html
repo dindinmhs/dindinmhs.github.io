@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,15 +15,15 @@
 </head>
 <body class="bg-dark-blue">
     <!-- navbar -->
-    <header class="top-0 left-0 right-0 py-2 px-6 flex justify-between items-center absolute z-50 backdrop-blur-md animate-to-down">
+    <header class="top-0 left-0 right-0 py-2 px-6 flex justify-between items-center fixed z-50 backdrop-blur-sm animate-to-down">
         <a href="">
             <h1 class="text-slate-500 font-logo text-3xl md:text-4xl">
                 <span class="text-4xl md:text-5xl leading-none inline-block translate-y-0.5 animate-logo-pink animation-delay-25"></span><span class="animate-logo-blue animation-delay-50">D</span><span class="animate-logo-blue animation-delay-75">I</span><span class="animate-logo-blue animation-delay-100">N</span><span class="animate-logo-blue animation-delay-125">D</span><span class="animate-logo-blue animation-delay-150">I</span><span class="animate-logo-blue animation-delay-175">N</span><span class="animate-logo-pink animation-delay-200">/</span><span class="text-4xl md:text-5xl leading-none inline-block translate-y-0.5 animate-logo-pink animation-delay-225"></span>
             </h1>
         </a>
         <nav class="absolute top-0 -z-10 left-0 right-0 h-[55vh] gradient-navbar flex flex-col items-center justify-around -translate-y-full duration-200 lg:static lg:inline lg:h-8 lg:translate-y-0 lg:z-0 lg:bg-none">
-            <a href="" class="nav-menu -translate-x-full lg:mt-0 mt-20">Home</a>
-            <a href="" class="nav-menu -translate-x-full">About</a>
+            <a href="#home" class="nav-menu -translate-x-full lg:mt-0 mt-20">Home</a>
+            <a href="#about" class="nav-menu -translate-x-full">About</a>
             <a href="" class="nav-menu -translate-x-full">Skills</a>
             <a href="" class="nav-menu -translate-x-full">Project</a>
             <a href="" class="nav-menu -translate-x-full lg:mb-0 mb-10">Contact</a>
@@ -78,21 +78,21 @@
         </div>
     </div>
     <!-- home -->
-    <section class="absolute h-screen w-screen top-0 grid grid-rows-3 lg:grid-cols-2 lg:grid-rows-1 items-end lg:items-center justify-items-center">
-        <article class="text-gray-100 flex items-center order-2 lg:order-1 self-start lg:self-center mt-3 lg:mt-0">
+    <section class="absolute h-screen top-0 grid grid-rows-3 md:grid-cols-2 md:grid-rows-1 items-end md:items-center justify-items-center overflow-auto" id="home">
+        <article class="text-gray-100 flex items-center order-2 md:order-1 self-start md:self-center mt-3 lg:mt-0">
             <div class="backdrop-blur-md rounded-md p-4 sm:ml-3 animate-to-right">
                 <h1 class="text-4xl md:text-6xl font-pixel">Hi my name is <span class="text-pink">Dindin Imanudin</span></h1>
                 <p class="text-2xl md:text-4xl font-pixel">I am a <span class="text-light-blue"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></p>
             </div>
         </article>
-        <article class="text-white flex items-center order-1 lg:order-2 row-span-2 animate-to-left">
+        <figure class="text-white flex items-center order-1 md:order-2 row-span-2 animate-to-left">
             <div class="w-60 md:w-96 backdrop-blur-md bg-[rgba(255,255,255,0.1)] rounded-xl border-gray-500 box-content sm:pb-6 sm:px-6 profile">
-                <img src="./public/Profile.png" alt="Profile">
+                <img src="./public/Profile.png" alt="Profile" loading="lazy">
             </div>
-        </article>
+        </figure>
     </section>
     <!-- popup -->
-    <section class="popup hidden opacity-0 fixed z-40 top-0 bottom-0 right-0 left-0 items-center justify-center backdrop-blur-sm duration-1000">
+    <article class="popup hidden opacity-0 fixed z-40 top-0 bottom-0 right-0 left-0 items-center justify-center backdrop-blur-sm duration-1000">
         <div class="bg-dark-blue text-gray-100 font-pixel  w-9/12 p-6 rounded-lg">
             <h1 class="text-2xl md:text-4xl text-light-blue">Announcement</h1>
             <p class="text-xl md:text-2xl">This website is still under development. I will soon present new, more interesting features and content</p>
@@ -100,7 +100,37 @@
                 <button class="bg-pink text-2xl md:text-4x mt-4 px-4 rounded-md hover:bg-light-blue self-end">Ok</button>
             </div>
         </div>
+    </article>
+    <section class="bg-slate-900 h-screen" id="about">
+        <h1 class="text-4xl md:text-6xl font-pixel text-light-blue text-center my-4">About</h1>
+        <main class="grid grid-cols-1 grid-row-2 lg:grid-cols-2 lg:grid-rows-1 h-5/6 items-center justify-center px-6 gap-5">
+            <article class="bg-slate-950 rounded-3xl max-h-full text-green-400 font-mono overflow-auto">
+                <div class="p-6">
+                    <div><span class="text-violet-400">class</span> <span class="text-yellow-400">DindinImanudin</span> <span class="text-orange-400">{</span></div>
+                    <div class="text-violet-400">constructor () {</div>
+                    <div><span class="text-yellow-400">this</span><span class="text-gray-200">.</span><span class="text-red-400">name</span> <span class="text-sky-500">=</span> 'Dindin Imanudin'</div>
+                    <div><span class="text-yellow-400">this</span><span class="text-gray-200">.</span><span class="text-red-400">hobby </span><span class="text-sky-500">=</span> 'programming'</div>        
+                    <div><span class="text-yellow-400">this</span><span class="text-gray-200">.</span><span class="text-red-400">college</span> <span class="text-sky-500">=</span> 'Bandung National Institute of Technology'</div>        
+                    <div><span class="text-yellow-400">this</span><span class="text-gray-200">.</span><span class="text-red-400">major</span> <span class="text-sky-500">=</span> 'Informatics'</div>        
+                    <div><span class="text-yellow-400">this</span><span class="text-gray-200">.</span><span class="text-red-400">skills</span> <span class="text-sky-500">= [</span>'HTML', 'CSS', 'JavaScript'<span class="text-sky-500">]</span> <span class="text-gray-500">// and more, look at the next section</span></div>        
+                    <div class="text-violet-400">}</div>    
+                    <div class="text-violet-400"><span class="text-sky-500">say</span>() {</div>    
+                    <div> <span class="text-violet-400">return</span> `Hello, my name is <span class="text-sky-500">${</span><span class="text-yellow-400">this</span><span class="text-gray-200">.</span><span class="text-red-400">name</span><span class="text-sky-500">}</span>. I'm enthusiastic about <span class="text-sky-500">${</span><span class="text-yellow-400">this</span><span class="text-gray-200">.</span><span class="text-red-400">hobby</span><span class="text-sky-500">}</span>. That's why I'm currently studying at the <span class="text-sky-500">${</span><span class="text-yellow-400">this</span><span class="text-gray-200">.</span><span class="text-red-400">college</span><span class="text-sky-500">}</span>, majoring in <span class="text-sky-500">${</span><span class="text-yellow-400">this</span><span class="text-gray-200">.</span><span class="text-red-400">major</span><span class="text-sky-500">}</span>. I have experience in developing websites using <span class="text-sky-500">${</span><span class="text-yellow-400">this</span><span class="text-gray-200">.</span><span class="text-red-400">skills</span><span class="text-orange-400">[0]</span><span class="text-sky-500">}</span>, <span class="text-sky-500">${</span><span class="text-yellow-400">this</span><span class="text-gray-200">.</span><span class="text-red-400">skills</span><span class="text-orange-400">[1]</span><span class="text-sky-500">}</span>, <span class="text-sky-500">${</span><span class="text-yellow-400">this</span><span class="text-gray-200">.</span><span class="text-red-400">skills</span><span class="text-orange-400">[2]</span><span class="text-sky-500">}</span> and now I'm learning React. My vast variety of skills is continuously expanding.`</div>       
+                    <div class="text-violet-400">}</div>    
+                    <div class="text-orange-400">}</div>
+                    <div class="text-orange-400"><span class="text-violet-400">new</span> <span class="text-yellow-400">DindinImanudin</span>()</span><span class="text-gray-200">.</span><span class="text-sky-500">say</span>()</div>
+                </div>               
+                <div class="bg-slate-800 text-end pr-7 py-2"><button class="button-run bg-pink px-3 py-1 text-gray-100 rounded-md font-ibm hover:bg-light-blue">Run Code</button></div>        
+            </article>            
+            <article class="bg-slate-950 rounded-3xl h-full text-white font-mono overflow-auto">
+                <h1 class="bg-slate-800 pl-7 py-2">Terminal</h1>
+                <div class="p-6">
+                    <p class="text-about after:inline-block after:bg-white after:w-3 after:h-1 after:translate-y-[0.300rem] after:animate-typing"></p>
+                </div>
+            </article>
+        </main>
     </section>
+
     <!-- my script -->
     <script type="module" src="script.js"></script>
     <!-- vanilla-tilt -->

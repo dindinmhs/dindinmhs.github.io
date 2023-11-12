@@ -1,14 +1,36 @@
+// nav scroll
+const sections = document.querySelectorAll('section')
+const navLinks = document.querySelectorAll('.nav-menu')
+
+window.onscroll = () =>{
+    sections.forEach(sec => {
+        let top = window.scrollY
+        let offset = sec.offsetTop
+        let height = sec.offsetHeight
+        let id = sec.getAttribute('id')
+
+        if (top >= offset && top < offset + height) {
+            navLinks.forEach(link => {
+                link.classList.remove('active')
+                document.querySelector('.nav-menu[href*=' + id + ']').classList.add('active')
+            })
+        }
+    })
+}
+
+// text logo
 const logoFirstSpan = document.querySelector('header a h1 span:first-child')
 logoFirstSpan.innerText = '<'
 const logoLastSpan = document.querySelector('header a h1 span:last-child')
 logoLastSpan.innerText = '>'
 
-
+// navbar
 const buttonMenu = document.querySelector('header nav a:last-child')
 const drop = document.querySelector('header nav a:last-child span')
 const nav = document.querySelector('header nav')
 const navMenu = document.querySelectorAll('header nav .nav-menu')
 
+// navbar click
 buttonMenu.addEventListener('click', (e) => {
     nav.classList.toggle('-translate-y-full')
     drop.classList.toggle('text-pink')
@@ -21,6 +43,7 @@ buttonMenu.addEventListener('click', (e) => {
     e.preventDefault()
 })
 
+// logo animation
 const logoBlue = document.querySelectorAll('.animate-logo-blue')
 const logoPink = document.querySelectorAll('.animate-logo-pink')
 
@@ -38,6 +61,7 @@ setInterval(() => {
     })
 }, 2250);
 
+// tagline animation
 const letterOne = document.querySelector('section article div p .text-light-blue span:nth-child(1)')
 const letterTwo = document.querySelector('section article div p .text-light-blue span:nth-child(2)')
 const letterThree = document.querySelector('section article div p .text-light-blue span:nth-child(3)')
@@ -99,6 +123,7 @@ RandomLetterForText(letterSeven, 'm', 'p')
 RandomLetterForText(letterEight, 'e', 'e')
 RandomLetterForText(letterNine, 'r', 'r')
 
+// popup
 const popup = document.querySelector('.popup')
 const buttonOk = document.querySelector('.popup button')
 window.onload = () => {
@@ -110,6 +135,8 @@ window.onload = () => {
         popup.classList.toggle('flex')
     }, 4000)
 }
+
+// pop up hide
 buttonOk.addEventListener('click',()=>{
     setTimeout(()=>{
         popup.classList.toggle('flex')
@@ -119,3 +146,28 @@ buttonOk.addEventListener('click',()=>{
     },800)
     popup.classList.toggle('opacity-0')
 })
+
+// about typing
+const textAbout = "Hello, my name is Dindin Imanudin. I'm enthusiastic about programming. That's why I'm currently studying at the Bandung National Institute of Technology, majoring in Informatics. I have experience in developing websites using HTML, CSS, Javascript and now I'm learning React. My vast variety of skills is continuously expanding."
+
+const articleAbout = document.querySelector('.text-about')
+const buttonRun = document.querySelector('.button-run')
+let charIndex = 0
+function typing() {   
+    let currentChar = textAbout.substring(0 , charIndex)
+    if (charIndex < textAbout.length) {
+        charIndex++
+        buttonRun.innerHTML = '<div class="custom-loader animate-loading"></div>'
+        articleAbout.classList.remove('after:animate-typing')
+        setTimeout(typing,50)
+    } else {
+        buttonRun.innerText = 'Code runed'
+        articleAbout.classList.add('after:animate-typing')
+    }
+    buttonRun.setAttribute('disabled','disabled')
+    buttonRun.classList.remove('bg-pink')
+    buttonRun.classList.add('bg-light-blue')
+    articleAbout.textContent = currentChar
+    
+}
+buttonRun.addEventListener('click',typing)

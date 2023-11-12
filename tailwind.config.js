@@ -14,7 +14,8 @@ module.exports = {
         'blue' : '#133e7c',
         'light-blue' : '#0abdc6',
         'pink' : '#ea00d9',
-        'purple' : '#711c91'
+        'purple' : '#711c91',
+        'blue' : '#133e7c'
       },
       keyframes : {
         'logo-blue' : {
@@ -41,6 +42,12 @@ module.exports = {
           '0%' : {transform : 'translatey(-10vh)', 'opacity' : 0},
           '100%' : {transform : 'translateX(0)', 'opacity' : 1}
         },
+        'typing' : {
+          '100%' : {'background-color' : 'rgb(2 6 23)'}
+        },
+        'loading' : {
+          '100%':{transform: 'rotate(2turn)'}
+        },
       },
       animation : {
         'logo-blue' : 'logo-blue 2.25s ease-in-out infinite',
@@ -49,6 +56,8 @@ module.exports = {
         'to-right' : 'to-right 1s',
         'to-left' : 'to-left 1s',
         'to-down' : 'to-down 1s',
+        'typing' : 'typing 0.8s linear infinite',
+        'loading':'loading 1s infinite linear'
       }
     },
   },
