@@ -1,6 +1,30 @@
 // nav scroll
 const sections = document.querySelectorAll('section')
 const navLinks = document.querySelectorAll('.nav-menu')
+const header = document.querySelector('header')
+const drop = document.querySelector('header nav a:last-child span')
+
+let lastPostion = 0
+window.addEventListener('scroll', ()=>{
+    let currentPosition = window.scrollY
+    if (currentPosition > lastPostion) {
+        header.classList.add('-translate-y-full')
+        setTimeout(()=>{
+            drop.classList.remove('translate-y-16')
+        }, 200)
+    } else {
+        header.classList.remove('-translate-y-full')
+        drop.classList.add('translate-y-16')
+    }
+    lastPostion = currentPosition
+})
+
+window.addEventListener('mousemove', (element)=>{
+    if (element.clientY <= 45) {
+        header.classList.remove('-translate-y-full')
+        drop.classList.add('translate-y-16')
+    }
+})
 
 window.onscroll = () =>{
     sections.forEach(sec => {
@@ -26,7 +50,6 @@ logoLastSpan.innerText = '>'
 
 // navbar
 const buttonMenu = document.querySelector('header nav a:last-child')
-const drop = document.querySelector('header nav a:last-child span')
 const nav = document.querySelector('header nav')
 const navMenu = document.querySelectorAll('header nav .nav-menu')
 

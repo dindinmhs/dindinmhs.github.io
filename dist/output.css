@@ -1208,6 +1208,10 @@ video {
   transition-duration: 300ms;
 }
 
+.duration-700 {
+  transition-duration: 700ms;
+}
+
 .gradient-navbar {
   background-image: linear-gradient(to bottom, rgba(9, 24, 51, 1) 95%, transparent);
 }
