@@ -3,15 +3,17 @@ const sections = document.querySelectorAll('section')
 const navLinks = document.querySelectorAll('.nav-menu')
 const header = document.querySelector('header')
 const drop = document.querySelector('header nav a:last-child span')
+ 
+const aboutArticleOne = document.querySelector('#about main article:nth-child(1)')
+const aboutArticleTwo = document.querySelector('#about main article:nth-child(2)')
+const aboutHead = document.querySelector('#about h1')
 
 let lastPostion = 0
 window.addEventListener('scroll', ()=>{
     let currentPosition = window.scrollY
     if (currentPosition > lastPostion) {
         header.classList.add('-translate-y-full')
-        setTimeout(()=>{
-            drop.classList.remove('translate-y-16')
-        }, 200)
+        drop.classList.remove('translate-y-16')
     } else {
         header.classList.remove('-translate-y-full')
         drop.classList.add('translate-y-16')
@@ -38,6 +40,10 @@ window.onscroll = () =>{
                 link.classList.remove('active')
                 document.querySelector('.nav-menu[href*=' + id + ']').classList.add('active')
             })
+            // aniamtion about
+            aboutHead.classList.add('animate-to-down')
+            aboutArticleOne.classList.add('animate-to-right')
+            aboutArticleTwo.classList.add('animate-to-left')
         }
     })
 }
@@ -194,3 +200,7 @@ function typing() {
     
 }
 buttonRun.addEventListener('click',typing)
+
+
+
+
