@@ -30,6 +30,9 @@ module.exports = {
           '0%' : {transform: 'translateY(100vh) scale(0)'},
           '100%' : {transform: 'translateY(-10vh) scale(1)'},
         },
+        'show' : {
+          '100%' : {transform : 'translateX(0)', 'opacity' : 1}
+        },
         'to-right' : {
           '0%' : {transform : 'translateX(-10vw)', 'opacity' : 0},
           '100%' : {transform : 'translateX(0)', 'opacity' : 1}
@@ -48,6 +51,34 @@ module.exports = {
         'loading' : {
           '100%':{transform: 'rotate(2turn)'}
         },
+        'rotate-right' : {
+          '0%':{transform: 'translate(-50%, -50%) rotate(0deg) '},
+          '100%':{transform: 'translate(-50%, -50%) rotate(360deg)'}
+        },
+        'rotate-left-orbit' : {
+          '0%':{transform: 'translate(-50%, -50%) rotate(0deg) '},
+          '100%':{transform: 'translate(-50%, -50%) rotate(-360deg)'}
+        },
+        'rotate-left' : {
+          '0%':{transform: 'rotate(0deg)'},
+          '100%':{transform: 'rotate(-360deg)'}
+        },
+        'rotate-right-planet' : {
+          '0%':{transform: 'rotate(0deg)'},
+          '100%':{transform: 'rotate(360deg)'}
+        },
+        'rotate-caption' : {
+          '0%':{transform: 'translate(20px, -10px) rotate(0deg)'},
+          '100%':{transform: 'translate(20px, -10px) rotate(-360deg)'}
+        },
+        'rotate-right-caption' : {
+          '0%':{transform: 'translate(20px, -10px) rotate(0deg)'},
+          '100%':{transform: 'translate(20px, -10px) rotate(360deg)'}
+        },
+        'stars' : {
+          'from' : {transform: 'translateY(0)'},
+          'to' : {transform: 'translateY(-2000px)'}
+        }
       },
       animation : {
         'logo-blue' : 'logo-blue 2.25s ease-in-out infinite',
@@ -57,7 +88,14 @@ module.exports = {
         'to-left' : 'to-left 1s',
         'to-down' : 'to-down 1s',
         'typing' : 'typing 0.8s linear infinite',
-        'loading':'loading 1s infinite linear'
+        'loading':'loading 1s linear infinite',
+        'rotate-right':'rotate-right 3s linear infinite',
+        'rotate-left':'rotate-left 3s linear infinite',
+        'rotate-left-caption':'rotate-caption 3s linear infinite',
+        'rotate-left-orbit':'rotate-left-orbit 5s linear infinite',
+      },
+      backgroundImage : {
+        'react' : "url('./public/React.svg')"
       }
     },
   },
