@@ -21,11 +21,11 @@
                 <span class="text-4xl md:text-5xl leading-none inline-block translate-y-0.5 animate-logo-pink animation-delay-25"></span><span class="animate-logo-blue animation-delay-50">D</span><span class="animate-logo-blue animation-delay-75">I</span><span class="animate-logo-blue animation-delay-100">N</span><span class="animate-logo-blue animation-delay-125">D</span><span class="animate-logo-blue animation-delay-150">I</span><span class="animate-logo-blue animation-delay-175">N</span><span class="animate-logo-pink animation-delay-200">/</span><span class="text-4xl md:text-5xl leading-none inline-block translate-y-0.5 animate-logo-pink animation-delay-225"></span>
             </h1>
         </a>
-        <nav class="absolute top-0 -z-10 left-0 right-0 h-[55vh] gradient-navbar flex flex-col items-center justify-around -translate-y-full duration-200 lg:static lg:inline lg:h-8 lg:translate-y-0 lg:z-0 lg:bg-none">
-            <a href="#home" class="nav-menu -translate-x-full lg:mt-0 mt-20">Home</a>
+        <nav class="absolute top-0 -z-10 left-0 right-0 h-[55vh] gradient-navbar flex flex-col items-center justify-around duration-200 lg:static lg:inline lg:h-8 lg:translate-y-0 lg:z-0 lg:bg-none -translate-y-full">
+            <a href="#home" class="nav-menu -translate-x-full lg:mt-0 mt-20 active">Home</a>
             <a href="#about" class="nav-menu -translate-x-full">About</a>
             <a href="#skills" class="nav-menu -translate-x-full">Skills</a>
-            <a href="" class="nav-menu -translate-x-full">Project</a>
+            <a href="#project" class="nav-menu -translate-x-full">Project</a>
             <a href="" class="nav-menu -translate-x-full lg:mb-0 mb-10">Contact</a>
             <a class="cursor-pointer absolute bottom-0 translate-y-8 z-20 lg:hidden">
                 <span class="material-symbols-outlined text-slate-500 leading-none text-5xl font-bold translate-y-16 duration-300">keyboard_double_arrow_down</span>
@@ -432,6 +432,41 @@
                     </figure>
                 </div>
             </article>
+        </main>
+   </section>
+   <section id="project" class="h-screen bg-cover bg-no-repeat">
+        <h1 class="text-4xl md:text-6xl font-pixel text-light-blue text-center py-4 to-down relative">Project</h1>
+        <main class="w-10/12 h-5/6 bg-cover m-auto relative shadow-2xl bg-[url('/src/public/teahouse.png')] bg-cover">
+            <div class="absolute w-full h-full bg-black opacity-50"></div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 grid-rows-2 lg:grid-rows-1 relative items-center h-full backdrop-blur-sm">
+                <div class="px-6 lg:px-8 h-full flex flex-col justify-center overflow-x-hidden description">
+                    <h2 class="text-2xl md:text-4xl font-pixel text-light-blue text-center">Tea House</h2>
+                    <p class="text-gray-100 font-pixel text-base lg:text-xl my-4">Create interactive and responsive coffee shop web templates using HTML, CSS and Javascript</p>
+                    <a href="https://teahouseweb.netlify.app/" target="_blank" class="text-white px-4 py-1 bg-pink hover:bg-light-blue font-pixel rounded-md text-xl lg:text-2xl w-fit">Visit</a>
+                </div>
+                <div>
+                    <figure class="flex lg:h-80 h-60 items-center overflow-x-hidden">
+                        <div class="lg:w-60 w-40 h-full bg-cover bg-[url('/src/public/teahouse-slide.png')] rounded-lg mx-3 relative overflow-hidden shrink-0 duration-700">
+                            <div class="absolute w-full h-full bg-gradient-to-t from-black to-transparent flex items-end px-5 py-3">
+                                <figcaption class="text-light-blue text-xl md:text-2xl font-pixel">Tea House</figcaption>
+                            </div>
+                        </div>
+                        <div class="lg:w-60 w-40 bg-cover bg-[url('/src/public/kitaweb-slide.png')] rounded-lg mx-3 relative overflow-hidden shrink-0 h-52 lg:h-72 duration-700">
+                            <div class="absolute w-full h-full bg-gradient-to-t from-black to-transparent flex items-end px-5 py-3">
+                                <figcaption class="text-light-blue text-xl md:text-2xl font-pixel">Kitaweb</figcaption>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="flex mt-7 justify-center lg:justify-start">
+                        <button disabled="disabled" class="p-2 bg-pink opacity-50 rounded-full flex justify-center items-center mx-2 back-slide">
+                            <span class="material-symbols-outlined text-white">arrow_back</span>
+                        </button>
+                        <button class="p-2 bg-pink active:bg-light-blue rounded-full flex justify-center items-center next-slide">
+                            <span class="material-symbols-outlined  text-white">arrow_forward</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </main>
    </section>
 

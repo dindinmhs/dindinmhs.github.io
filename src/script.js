@@ -3,21 +3,19 @@ const sections = document.querySelectorAll('section')
 const navLinks = document.querySelectorAll('.nav-menu')
 const header = document.querySelector('header')
 const drop = document.querySelector('header nav a:last-child span')
+const linkAbout = document.querySelector('#about')
  
 const aboutArticleOne = document.querySelector('#about main article:nth-child(1)')
 const aboutArticleTwo = document.querySelector('#about main article:nth-child(2)')
 const aboutHead = document.querySelector('#about h1')
-const skillsHead = document.querySelector('#skills h1') 
-const fundamentalSkills = document.querySelector('#skills article:nth-child(1)') 
-const othersSkills = document.querySelector('#skills article:nth-child(2)') 
 
 let lastPostion = 0
 window.addEventListener('scroll', ()=>{
     let currentPosition = window.scrollY
-    if (currentPosition > lastPostion) {
+    if (currentPosition > lastPostion && nav.className == 'absolute top-0 -z-10 left-0 right-0 h-[55vh] gradient-navbar flex flex-col items-center justify-around duration-200 lg:static lg:inline lg:h-8 lg:translate-y-0 lg:z-0 lg:bg-none -translate-y-full') {
         header.classList.add('-translate-y-full')
         drop.classList.remove('translate-y-16')
-    } else {
+    } else if (currentPosition < lastPostion && nav.className == 'absolute top-0 -z-10 left-0 right-0 h-[55vh] gradient-navbar flex flex-col items-center justify-around duration-200 lg:static lg:inline lg:h-8 lg:translate-y-0 lg:z-0 lg:bg-none -translate-y-full'){
         header.classList.remove('-translate-y-full')
         drop.classList.add('translate-y-16')
     }
@@ -25,7 +23,7 @@ window.addEventListener('scroll', ()=>{
 })
 
 window.addEventListener('mousemove', (element)=>{
-    if (element.clientY <= 45 && header.className == 'top-0 left-0 right-0 py-2 px-6 flex justify-between items-center fixed z-50 backdrop-blur-sm animate-to-down duration-700 -translate-y-full') {
+    if (element.clientY <= 45 && nav.className == 'absolute top-0 -z-10 left-0 right-0 h-[55vh] gradient-navbar flex flex-col items-center justify-around duration-200 lg:static lg:inline lg:h-8 lg:translate-y-0 lg:z-0 lg:bg-none -translate-y-full') {
         header.classList.remove('-translate-y-full')
         drop.classList.add('translate-y-16')
     }
@@ -639,3 +637,93 @@ circles.forEach((circle)=>{
         },13600)
     }, 19400)
 })
+
+// project slide
+const nextSlide = document.querySelector('.next-slide')
+const backSlide = document.querySelector('.back-slide')
+const projectList = document.querySelectorAll('#project main figure .shrink-0')
+const backgroundProject = document.querySelector('#project main')
+const projectName = document.querySelector('#project h2')
+const projectDescription = document.querySelector('#project p')
+const linkProject = document.querySelector('#project main a')
+const descriptionSect = document.querySelector('#project main .description')
+
+let i = 0
+let margin = 0
+const backgroundProjectList = ["bg-[url('/src/public/teahouse.png')]", "bg-[url('/src/public/kitaweb.png')]"]
+const projectNameList = ['Tea House', 'Kita Web']
+const linkProjectList = ['https://teahouseweb.netlify.app/', 'https://kitaweb-mu.vercel.app/']
+const projectDescriptionList = ['Create interactive and responsive coffee shop web templates using HTML, CSS and Javascript', 'develop a responsive company profile website using Next.js (Tailwind CSS and React)']
+
+// backSlide.removeAttribute("disabled")
+// next slide
+nextSlide.addEventListener('click', (e)=>{
+    if (i >= projectList.length - 2) {
+        nextSlide.setAttribute('disabled','disabled')
+        nextSlide.classList.add('opacity-50')
+        nextSlide.classList.remove('active:bg-light-blue')
+    }
+    if (window.innerWidth >= 1024) {
+        margin = margin + 260
+        projectList[0].style.marginLeft = `-${margin}px`
+    } else {
+        margin = margin + 180
+        projectList[0].style.marginLeft = `-${margin}px`
+    }
+    projectName.textContent = projectNameList[i+1]
+    projectDescription.textContent = projectDescriptionList[i+1]
+    backgroundProject.className = "w-10/12 h-5/6 bg-cover m-auto relative shadow-2xl"
+    linkProject.setAttribute('href',linkProjectList[i+1])
+    backgroundProject.classList.add(backgroundProjectList[i+1])
+    // animation
+    descriptionSect.classList.add('animate-[to-up_0.4s]')
+    setTimeout(()=>{
+        descriptionSect.classList.remove('animate-[to-up_0.4s]')
+    },400)
+    projectList[i].classList.toggle('h-full')
+    projectList[i].classList.toggle('lg:h-72')
+    projectList[i].classList.toggle('h-52')
+    projectList[i+1].classList.toggle('h-full')
+    projectList[i+1].classList.toggle('lg:h-72')
+    projectList[i+1].classList.toggle('h-52')
+    backSlide.removeAttribute("disabled")
+    backSlide.classList.remove("opacity-50")
+    backSlide.classList.add("active:bg-light-blue")
+    i++
+})
+// back slide
+backSlide.addEventListener('click', (e)=>{
+    if (i == 1) {
+        backSlide.setAttribute('disabled','disabled')
+        backSlide.classList.add('opacity-50')
+        backSlide.classList.remove('active:bg-light-blue')
+    }
+    if (window.innerWidth >= 1024) {
+        margin = margin - 260
+        projectList[0].style.marginLeft = `-${margin}px`
+    } else {
+        margin = margin - 180
+        projectList[0].style.marginLeft = `-${margin}px`
+    }
+    projectName.textContent = projectNameList[i-1]
+    projectDescription.textContent = projectDescriptionList[i-1]
+    backgroundProject.className = "w-10/12 h-5/6 bg-cover m-auto relative shadow-2xl"
+    linkProject.setAttribute('href',linkProjectList[i-1])
+    backgroundProject.classList.add(backgroundProjectList[i-1])
+    // animation
+    descriptionSect.classList.add('animate-[to-up_0.4s]')
+    setTimeout(()=>{
+        descriptionSect.classList.remove('animate-[to-up_0.4s]')
+    },400)
+    projectList[i].classList.toggle('h-full')
+    projectList[i].classList.toggle('lg:h-72')
+    projectList[i].classList.toggle('h-52')
+    projectList[i-1].classList.toggle('h-full')
+    projectList[i-1].classList.toggle('lg:h-72')
+    projectList[i-1].classList.toggle('h-52')
+    nextSlide.removeAttribute("disabled")
+    nextSlide.classList.remove("opacity-50")
+    nextSlide.classList.add("active:bg-light-blue")
+    i--
+})
+

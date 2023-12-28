@@ -45,6 +45,14 @@ module.exports = {
           '0%' : {transform : 'translatey(-10vh)', 'opacity' : 0},
           '100%' : {transform : 'translateX(0)', 'opacity' : 1}
         },
+        'to-up' : {
+          '0%' : {transform : 'translatey(5vh)', 'opacity' : 0},
+          '100%' : {transform : 'translateX(0)', 'opacity' : 1}
+        },
+        'to-scale' : {
+          '0%' : {transform : 'scale(1.2)'},
+          '100%' : {transform : 'scale(1)'}
+        },
         'typing' : {
           '100%' : {'background-color' : 'rgb(2 6 23)'}
         },
