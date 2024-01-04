@@ -153,23 +153,23 @@ const popup = document.querySelector('.popup')
 const buttonOk = document.querySelector('.popup button')
 window.onload = () => {
     setTimeout(()=>{
-        popup.classList.toggle('hidden')
+        popup.classList.remove('hidden')
         setTimeout(()=>{
-            popup.classList.toggle('opacity-0')
+            popup.classList.remove('opacity-0')
         },100)
-        popup.classList.toggle('flex')
+        popup.classList.add('flex')
     }, 4000)
 }
 
 // pop up hide
 buttonOk.addEventListener('click',()=>{
     setTimeout(()=>{
-        popup.classList.toggle('flex')
+        popup.classList.remove('flex')
     },800)
     setTimeout(()=>{
-        popup.classList.toggle('hidden')
+        popup.classList.add('hidden')
     },800)
-    popup.classList.toggle('opacity-0')
+    popup.classList.add('opacity-0')
 })
 
 // about typing
@@ -727,3 +727,103 @@ backSlide.addEventListener('click', (e)=>{
     i--
 })
 
+// get in touch
+const planeButton = document.querySelector('.plane')
+const maskCircuit = document.querySelector('.mask-circuit')
+
+planeButton.addEventListener('mouseover',()=>{
+    maskCircuit.classList.remove('bg-[length:300%_300%]')
+    maskCircuit.classList.add('bg-[length:100%_100%]')
+})
+planeButton.addEventListener('mouseout',()=>{
+    maskCircuit.classList.remove('bg-[length:100%_100%]')
+    maskCircuit.classList.add('bg-[length:300%_300%]')
+})
+
+const emailInput = document.querySelector('.email-input')
+const emailLabel = document.querySelector('.email-label')
+
+emailInput.addEventListener('focusin',()=>{
+    emailLabel.classList.add('peer-invalid/email:-translate-y-[2.75rem]')
+    emailLabel.classList.add('peer-invalid/email:text-base')
+})
+emailInput.addEventListener('focusout',()=>{
+    if (emailInput.value.length < 1) {
+        emailLabel.classList.remove('peer-invalid/email:-translate-y-[2.75rem]')
+        emailLabel.classList.remove('peer-invalid/email:text-base')
+    }
+})
+
+const form = document.querySelector('.form')
+const closeButton = document.querySelector('.close')
+
+const innerForm = document.querySelectorAll('form > *')
+const loader = document.querySelector('form .custom-loader')
+const buttonSubmit = document.querySelector('form button[type*=submit]')
+// form show
+planeButton.addEventListener('click',()=>{
+        form.classList.remove('hidden')
+        setTimeout(()=>{
+            form.classList.remove('opacity-0')
+        },100)
+        form.classList.add('flex')
+        loader.classList.add('hidden')
+        innerForm[1].textContent = 'Thank You!'
+        innerForm[2].classList.add('hidden')
+        innerForm[3].classList.remove('hidden')
+        innerForm[4].classList.remove('hidden')
+        innerForm[5].classList.remove('hidden')
+        innerForm[6].classList.remove('hidden')
+        innerForm[7].classList.remove('hidden')
+        innerForm[8].classList.remove('hidden')
+        buttonSubmit.classList.remove('hidden')
+    }
+)
+// form hide
+// pop up hide
+closeButton.addEventListener('click',()=>{
+    setTimeout(()=>{
+        closeButton.parentElement.parentElement.classList.remove('flex')
+    },800)
+    setTimeout(()=>{
+        closeButton.parentElement.parentElement.classList.add('hidden')
+    },800)
+    closeButton.parentElement.parentElement.classList.add('opacity-0')
+})
+// form spreadsheets
+const scriptURL = 'https://script.google.com/macros/s/AKfycbwUfEzmhA9UKbc7zqfAV_975Igd9cw30lkC4Lo1e3TyQ5kRnGpkUyGxdr4pzFe7weal/exec';
+
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.forms['submit-to-google-sheet'];
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        await innerForm[0].classList.add('hidden')
+        await buttonSubmit.classList.add('hidden')
+        await loader.classList.remove('hidden')
+        await loader.classList.add('grid')
+        await fetch(scriptURL, { method: 'POST', body: new FormData(form) });
+        try {
+            innerForm[0].classList.remove('hidden')
+            innerForm[1].textContent = 'Thank You!'
+            innerForm[2].classList.remove('hidden')
+            innerForm[2].textContent = 'Your message has been received, thank you for contacting me.'
+            innerForm[3].classList.add('hidden')
+            innerForm[4].classList.add('hidden')
+            innerForm[5].classList.add('hidden')
+            innerForm[6].classList.add('hidden')
+            innerForm[7].classList.add('hidden')
+            innerForm[8].classList.add('hidden')
+        } catch (error) {
+            innerForm[0].classList.remove('hidden')
+            innerForm[1].textContent = 'Failed!'
+            innerForm[2].classList.remove('hidden')
+            innerForm[2].textContent = 'Sorry, your message cannot be sent at this time. Please repeat the shipping process or contact us directly.'
+            innerForm[3].classList.add('hidden')
+            innerForm[4].classList.add('hidden')
+            innerForm[5].classList.add('hidden')
+            innerForm[6].classList.add('hidden')
+            innerForm[7].classList.add('hidden')
+            innerForm[8].classList.add('hidden')
+        }
+    });
+});

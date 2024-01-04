@@ -103,8 +103,6 @@
     .custom-loader {
         width: 25px;
         height: 25px;
-        display: grid;
-        color: white;
         background: radial-gradient(farthest-side, currentColor calc(100% - 3px),#0000 calc(100% - 2.5px) 0);
         -webkit-mask:radial-gradient(farthest-side,#0000 calc(100% - 6.5px),#000 calc(100% - 6px));
         border-radius: 50%;
@@ -662,6 +660,23 @@
         /* background-image: linear-gradient(to bottom, rgba(9, 24, 51, 1), rgba(9, 24, 51, 0.9)); */
         background-image: radial-gradient(rgba(9, 24, 51, 0.3), rgba(9, 24, 51, 1));
     }
+    .mask-circuit {
+        -webkit-mask-image: url(../src/public/circuit.png);
+        mask-image: url(../src/public/circuit.png);
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-size: cover;
+        mask-size: cover;
+        -webkit-mask-position: center;
+        mask-position: center;
+    }
+    .close {
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 700,
+        'GRAD' 0,
+        'opsz' 24
+      }
 }
 
 @layer components {

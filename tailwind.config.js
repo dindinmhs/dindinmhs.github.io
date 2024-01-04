@@ -86,7 +86,7 @@ module.exports = {
         'stars' : {
           'from' : {transform: 'translateY(0)'},
           'to' : {transform: 'translateY(-2000px)'}
-        }
+        },
       },
       animation : {
         'logo-blue' : 'logo-blue 2.25s ease-in-out infinite',
