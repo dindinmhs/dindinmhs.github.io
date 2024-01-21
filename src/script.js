@@ -148,30 +148,6 @@ RandomLetterForText(letterSeven, 'm', 'p')
 RandomLetterForText(letterEight, 'e', 'e')
 RandomLetterForText(letterNine, 'r', 'r')
 
-// popup
-const popup = document.querySelector('.popup')
-const buttonOk = document.querySelector('.popup button')
-window.onload = () => {
-    setTimeout(()=>{
-        popup.classList.remove('hidden')
-        setTimeout(()=>{
-            popup.classList.remove('opacity-0')
-        },100)
-        popup.classList.add('flex')
-    }, 4000)
-}
-
-// pop up hide
-buttonOk.addEventListener('click',()=>{
-    setTimeout(()=>{
-        popup.classList.remove('flex')
-    },800)
-    setTimeout(()=>{
-        popup.classList.add('hidden')
-    },800)
-    popup.classList.add('opacity-0')
-})
-
 // about typing
 const textAbout = "Hello, my name is Dindin Imanudin. I'm enthusiastic about programming. That's why I'm currently studying at the Bandung National Institute of Technology, majoring in Informatics. I have experience in developing websites using HTML, CSS, Javascript and now I'm learning React. My vast variety of skills is continuously expanding."
 

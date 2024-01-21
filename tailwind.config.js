@@ -15,7 +15,6 @@ module.exports = {
         'light-blue' : '#0abdc6',
         'pink' : '#ea00d9',
         'purple' : '#711c91',
-        'blue' : '#133e7c'
       },
       keyframes : {
         'logo-blue' : {
