@@ -757,17 +757,6 @@ planeButton.addEventListener('click',()=>{
         buttonSubmit.classList.remove('hidden')
     }
 )
-// form hide
-// pop up hide
-closeButton.addEventListener('click',()=>{
-    setTimeout(()=>{
-        closeButton.parentElement.parentElement.classList.remove('flex')
-    },800)
-    setTimeout(()=>{
-        closeButton.parentElement.parentElement.classList.add('hidden')
-    },800)
-    closeButton.parentElement.parentElement.classList.add('opacity-0')
-})
 // form spreadsheets
 const scriptURL = 'https://script.google.com/macros/s/AKfycbwUfEzmhA9UKbc7zqfAV_975Igd9cw30lkC4Lo1e3TyQ5kRnGpkUyGxdr4pzFe7weal/exec';
 
