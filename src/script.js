@@ -744,7 +744,9 @@ planeButton.addEventListener('click',()=>{
         },100)
         form.classList.add('flex')
         loader.classList.add('hidden')
-        innerForm[1].textContent = 'Thank You!'
+        emailLabel.classList.remove('peer-invalid/email:-translate-y-[2.75rem]')
+        emailLabel.classList.remove('peer-invalid/email:text-base')
+        innerForm[1].textContent = 'Get In Touch'
         innerForm[2].classList.add('hidden')
         innerForm[3].classList.remove('hidden')
         innerForm[4].classList.remove('hidden')
