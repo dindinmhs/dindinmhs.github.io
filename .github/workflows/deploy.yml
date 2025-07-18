@@ -22,7 +22,7 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no ubuntu@16.176.96.19 << 'EOF'
             cd /var/www/html/dindinmhs.github.io
-            git pull origin main
+            sudo git pull origin main
             # Restart Nginx or any other service if needed
             sudo systemctl restart nginx
           EOF
