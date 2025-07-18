@@ -20,7 +20,7 @@ jobs:
 
       - name: Deploy to EC2
         run: |
-          ssh -o StrictHostKeyChecking=no root@16.176.96.19 << 'EOF'
+          ssh -o StrictHostKeyChecking=no ubuntu@16.176.96.19 << 'EOF'
             cd /var/www/html/dindinmhs.github.io
             git pull origin main
             # Restart Nginx or any other service if needed
